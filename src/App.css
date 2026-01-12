@@ -1,6 +1,43 @@
-.container{
+.root{
   min-height: 100vh;
   display:flex;
   justify-content : center;
   align-items: center;
+  background:white;
 }
+.primary-conatainer{
+  display:flex;
+  flex-direction:column;
+  gap:1em;
+  align-items:center;
+  justify-content:center;
+  margin-bottom: 14em;
+}
+.default{
+  display:flex;
+  flex-direction:column;
+  height:5em;
+  width:5em;
+  align-items:center;
+  justify-content:center;
+  border:none;
+  outline:none;
+}
+img{
+  border:none;
+  outline:none;
+  display:block;
+}
+.box-image{
+  border:none !important;
+  outline:none !important;
+  box-shadow:none !important;
+}
+.secondary-text-box{
+  display:flex;
+  width:10em;
+}
+.secondary-text{
+  color: #BFBDB6;
+}
+
