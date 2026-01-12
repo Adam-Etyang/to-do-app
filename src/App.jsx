@@ -1,5 +1,9 @@
 import './App.css';
-import { Box, Button } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Field
+} from '@chakra-ui/react';
 import { useState } from 'react';
 
 function App() {
@@ -20,7 +24,7 @@ function App() {
             </div>
             <div className='Add-task-button'>
               <Button
-                onClick={() => { addTask() }}
+                onClick={() => { setEmpty(false) }}
                 size='sm'
                 colorPalette='yellow'>
                 Click ts
@@ -35,6 +39,12 @@ function App() {
   }
   return (
     <>
+      <Box position="relative" h="100vh" className='root' border='none'>
+
+        <div className='input-container'>
+          <p>input container</p>
+        </div>
+      </Box>
     </>
   )
 
