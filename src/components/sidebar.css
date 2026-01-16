@@ -33,12 +33,38 @@
   flex-direction: column;
 }
 
+.main-container.closing {
+  animation: slideOut 0.3s ease;
+}
+
+.sidebar-overlay.closing {
+  animation: fadeOut 0.3s ease;
+}
+
 @keyframes slideIn {
   from {
     transform: translateX(100%);
   }
   to {
     transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 
