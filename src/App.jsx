@@ -2,15 +2,42 @@ import './App.css';
 import {
   Box,
   Button,
-  Field,
-  Card,
-  Avatar,
-  Input,
 } from '@chakra-ui/react';
+
+import Sidebar from './components/sidebar';
 import { useState } from 'react';
 
 function App() {
   const [empty, setEmpty] = useState(true);
+  const [dataMap, setDataMap] = useState(new Map());
+  const [task, setTask] = useState('');
+  const [desc, setDesc] = useState('');
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const handlesidebar = () => {
+    console.log('open sidebar');
+    setSidebarOpen(true);
+  }
+  const handleSubmit = () => {
+    const trimmed = task.trim();
+    if (trimmed == '') return;
+
+    const key = trimmed;
+    setDataMap(prevMap => {
+      const newMap = new Map(prevMap);
+      newMap.set(key, desc);
+      return newMap;
+    });
+
+    setTask('');
+    setDesc('');
+
+  }
+
+
+
+
+
   if (empty) {
     return (
       <>
@@ -44,11 +71,19 @@ function App() {
   return (
     <>
       <Box position="relative" h="100vh" className='root' border='none'>
+
+        <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} >
+        </Sidebar>
+        <div className='sidebarbutton'>
+          <button type="button" onClick={handlesidebar}>
+            open</button>
+        </div>
+
         <div className='input-container'>
 
           <div className='text-field'>
-            <input className='primary-input' placeholder='Sth random' />
-            <input className='secondary-input' placeholder='Despription' />
+            <input className='primary-input' placeholder='Sth random' id='task' />
+            <input className='secondary-input' placeholder='Despription' id='desc' />
           </div>
 
           <div className='card-footer'>
@@ -59,8 +94,12 @@ function App() {
             </div>
             <div className='enter-button-container'>
 
-              <button type="button" className='enter-button'
-              >send</button>
+              <button
+                className='enter-button'
+                onClick={handleSubmit}
+              >
+                send
+              </button>
             </div>
 
           </div>

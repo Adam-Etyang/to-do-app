@@ -90,14 +90,40 @@ gap : .5em;
   width:3em;
   height:3em;
   background-color:black
+}
+.cancel-button:hover{
+cursor : pointer;
 
 }
+.sidebarbutton{
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
 
+.sidebarbutton button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8em 1.5em;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sidebarbutton button:hover {
+  background-color: #333;
+}
 
 .enter-button{
   background-color : black;
   width : 3em;
   height : 3em; 
+}
+.enter-button:hover{
+  cursor : pointer;
 }
 .enter-button-container{
       position:absolute;
