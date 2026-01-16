@@ -2,7 +2,10 @@ import './App.css';
 import {
   Box,
   Button,
-  Field
+  Field,
+  Card,
+  Avatar,
+  Input,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 
@@ -37,12 +40,31 @@ function App() {
       </>
     );
   }
+
   return (
     <>
       <Box position="relative" h="100vh" className='root' border='none'>
-
         <div className='input-container'>
-          <p>input container</p>
+
+          <div className='text-field'>
+            <input className='primary-input' placeholder='Sth random' />
+            <input className='secondary-input' placeholder='Despription' />
+          </div>
+
+          <div className='card-footer'>
+            <div
+              className='cancel-button-container'>
+
+              <button type="button" className='cancel-button'>x</button>
+            </div>
+            <div className='enter-button-container'>
+
+              <button type="button" className='enter-button'
+              >send</button>
+            </div>
+
+          </div>
+
         </div>
       </Box>
     </>

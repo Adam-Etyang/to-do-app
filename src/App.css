@@ -2,8 +2,10 @@
   min-height: 100vh;
   display:flex;
   justify-content : center;
-  align-items: center;
+  align-items: flex-start;
+  padding-top:10em;
   background:white;
+  box-sizing: border-box;
 }
 .primary-conatainer{
   display:flex;
@@ -40,6 +42,124 @@ img{
 .secondary-text{
   color: #BFBDB6;
 }
+
 .input-container{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  border: 1px solid #E6E6E6;
+  max-width: min(800px, 90vw);
+  min-height: 150px;
+  border-radius:10px;
+  width: 90%;
+  padding-top: 1em;
+  box-sizing: border-box;
+}
+
+.text-field{
+  display:flex;
+  flex-direction:column;
+  text-color:black;
+  gap:1em;
+}
+
+input{
+  background-color:white;
+  color:black
+}
+
+.linebreak{
+  display: block;
+  margin: 15px 0;
+  border-bottom: 2px solid #000;
+  width: 50px; /* Small horizontal line */
+}
+
+.card-footer{
+  position: relative;
+display:flex;
+flex-direction:row;
+height:40px;
+padding-top:10px;
+padding-bottom:0px;
+gap : .5em;
+
+}
+
+.cancel-button{
+  width:3em;
+  height:3em;
+  background-color:black
+
+}
+
+
+.enter-button{
+  background-color : black;
+  width : 3em;
+  height : 3em; 
+}
+.enter-button-container{
+      position:absolute;
+  right:50px;
+  top:0;
+
+
+}
+.cancel-button-container{
+    position:absolute;
+  right:0;
+  top:0;
+
+
+}
+
+
+.secondary-input{
+  border:none;
+  outline:none;
+  padding-left:10px;
+
+}
+.primary-input{
+  margin-top:10px;
+  border:none;
+  outline:none;
+    padding-left:10px;
+
+}
+.primary-input:active{
+  border:0px;
+}
+
+p{
+  color:black;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  .Root-card {
+    width: 95%;
+    max-width: none;
+  }
+
+  .input-container {
+    width: 95%;
+    padding: 0.8em;
+    min-height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Root-card {
+    width: 100%;
+  }
+
+  .input-container {
+    width: 95%;
+    padding: 0.5em;
+    min-height: 100px;
+    border-radius: 8px;
+  }
 }
 
