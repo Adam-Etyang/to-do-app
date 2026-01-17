@@ -77,23 +77,30 @@ input{
 
 .card-footer{
   position: relative;
-display:flex;
-flex-direction:row;
-height:40px;
-padding-top:10px;
-padding-bottom:0px;
-gap : .5em;
-
+  display:flex;
+  flex-direction:row;
+  justify-content: flex-end;
+  align-items: center;
+  height:40px;
+  padding: 10px 10px 10px 0;
+  gap: 0.5em;
 }
 
 .cancel-button{
-  width:3em;
-  height:3em;
-  background-color:black
+  width: 40px;
+  height: 40px;
+  background-color:black;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .cancel-button:hover{
-cursor : pointer;
-
+  cursor: pointer;
+  background-color: #333;
 }
 .sidebarbutton{
   position: fixed;
@@ -118,26 +125,28 @@ cursor : pointer;
 }
 
 .enter-button{
-  background-color : black;
-  width : 3em;
-  height : 3em; 
+  background-color: black;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .enter-button:hover{
-  cursor : pointer;
+  cursor: pointer;
+  background-color: #333;
 }
 .enter-button-container{
-      position:absolute;
-  right:50px;
-  top:0;
-
-
+  display: flex;
+  align-items: center;
 }
 .cancel-button-container{
-    position:absolute;
-  right:0;
-  top:0;
-
-
+  display: flex;
+  align-items: center;
 }
 
 
