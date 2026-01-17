@@ -12,25 +12,33 @@ function App() {
   const [dataMap, setDataMap] = useState(new Map());
   const [task, setTask] = useState('');
   const [desc, setDesc] = useState('');
+  const [date, setDate] = useState(Date.now())
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handlesidebar = () => {
     console.log('open sidebar');
     setSidebarOpen(true);
-  }
+  };
+
   const handleSubmit = () => {
     const trimmed = task.trim();
     if (trimmed == '') return;
 
-    const key = trimmed;
+    const descobj = {
+      text: desc,
+      createdAt: Date.now(),
+      dueDate: date
+
+    }
     setDataMap(prevMap => {
       const newMap = new Map(prevMap);
-      newMap.set(key, desc);
+      newMap.set(trimmed, descobj);
       return newMap;
     });
 
     setTask('');
     setDesc('');
+    setDate(Date.now());
 
   }
 
@@ -84,6 +92,8 @@ function App() {
           <div className='text-field'>
             <input className='primary-input' placeholder='Sth random' id='task' />
             <input className='secondary-input' placeholder='Despription' id='desc' />
+            <input className='date' placeholder='Date' id='date' />
+
           </div>
 
           <div className='card-footer'>

@@ -157,6 +157,13 @@ cursor : pointer;
 .primary-input:active{
   border:0px;
 }
+.date {
+  border:none;
+  outline:none;
+    padding-left:10px;
+
+}
+
 
 p{
   color:black;
