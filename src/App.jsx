@@ -12,7 +12,7 @@ function App() {
   const [dataMap, setDataMap] = useState(new Map());
   const [task, setTask] = useState('');
   const [desc, setDesc] = useState('');
-  const [date, setDate] = useState(Date.now())
+  const [date, setDate] = useState('');
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handlesidebar = () => {
@@ -20,8 +20,17 @@ function App() {
     setSidebarOpen(true);
   };
 
+
+  const handleCancel = () => {
+    console.log('cancel button pressed');
+    setTask('');
+    setDesc('');
+    setDate('');
+  }
+
   const handleSubmit = () => {
     const trimmed = task.trim();
+
     if (trimmed == '') return;
 
     const descobj = {
@@ -90,9 +99,27 @@ function App() {
         <div className='input-container'>
 
           <div className='text-field'>
-            <input className='primary-input' placeholder='Sth random' id='task' />
-            <input className='secondary-input' placeholder='Despription' id='desc' />
-            <input className='date' placeholder='Date' id='date' />
+            <input
+              className='primary-input'
+              placeholder='Sth random'
+              id='task'
+              value={task}
+              onChange={(e) => setTask(e.target.value)}
+            />
+            <input
+              className='secondary-input'
+              placeholder='Despription'
+              id='desc'
+              value={desc}
+              onChange={(e) => setDesc(e.target.value)}
+            />
+            <input
+              className='date'
+              placeholder='Date'
+              id='date'
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
 
           </div>
 
@@ -100,7 +127,13 @@ function App() {
             <div
               className='cancel-button-container'>
 
-              <button type="button" className='cancel-button'>x</button>
+              <button
+                type="button"
+                className='cancel-button'
+                onClick={handleCancel}
+              >
+                Cancel
+              </button>
             </div>
             <div className='enter-button-container'>
 
