@@ -3,19 +3,18 @@
   flex-direction: column;
   width: 100%;
   visibility: visible;
-  background-color: black;
+  background-color: white;
+  border-radius: 24px;
   margin-bottom: 1em;
-  color: white;
 }
 
 .card p {
-  color: white;
+  color: black;
 }
 
 .card strong {
-  color: white;
+  color: black;
 }
-
 .no-tasks {
   display: flex;
   align-items: center;
@@ -23,4 +22,10 @@
   padding: 2em;
   color: #bfbdb6;
   text-align: center;
+}
+.title {
+  font-size: 30px;
+}
+.title:hover {
+  cursor: pointer;
 }

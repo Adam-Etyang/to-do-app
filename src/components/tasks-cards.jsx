@@ -1,6 +1,6 @@
 import "./tasks-cards.css";
-import { Collapsible, Box } from "@chakra-ui/react";
-import { GoTriangleDown } from "react-icons/go";
+import { Collapsible, Box, Button, Menu, Portal } from "@chakra-ui/react";
+import { LuChevronRight } from "react-icons/lu";
 import dayjs from "dayjs";
 
 export default function TasksCards({ dataMap }) {
@@ -21,10 +21,21 @@ export default function TasksCards({ dataMap }) {
     <>
       {tasks.map(([taskName, taskData]) => (
         <div className="card" key={taskData.createdAt}>
-          <Collapsible.Root>
-            <Collapsible.Trigger paddingY="3">
-              {taskName}
-              <GoTriangleDown />
+          <Collapsible.Root borderRadius="8px" overflow="hidden">
+            <Collapsible.Trigger
+              paddingY="3"
+              display="flex"
+              gap="2"
+              alignItems="center"
+            >
+              <Collapsible.Indicator
+                transition="transform 0.2s"
+                color="black"
+                _open={{ transform: "rotate(90deg)" }}
+              >
+                <LuChevronRight />
+              </Collapsible.Indicator>
+              <p className="title">{taskName}</p>
             </Collapsible.Trigger>
             <Collapsible.Content>
               <Box padding="4" borderWidth="1px">
@@ -40,6 +51,31 @@ export default function TasksCards({ dataMap }) {
                 <br />
                 <strong>Created:</strong>
                 <p>{dayjs(taskData.createdAt).format("MMM DD, YYYY h:mm A")}</p>
+                <Menu.Root>
+                  <Menu.Trigger asChild>
+                    <Button
+                      variant="solid"
+                      size="sm"
+                      color="black"
+                      borderColor="black"
+                      _hover={{ bg: "black", color: "white" }}
+                      _active={{ bg: "black", color: "white" }}
+                    >
+                      Actions
+                    </Button>
+                  </Menu.Trigger>
+                  <Portal>
+                    <Menu.Positioner>
+                      <Menu.Content>
+                        <Menu.Item value="Edit">Edit</Menu.Item>
+                        <Menu.Item value="CompleteTask">
+                          Complete task
+                        </Menu.Item>
+                        <Menu.Item value="DeleteTask">Delete task</Menu.Item>
+                      </Menu.Content>
+                    </Menu.Positioner>
+                  </Portal>
+                </Menu.Root>
               </Box>
             </Collapsible.Content>
           </Collapsible.Root>

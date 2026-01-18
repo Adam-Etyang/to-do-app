@@ -101,6 +101,8 @@ input {
 .calender .MuiOutlinedInput-root {
   border: none !important;
   outline: none !important;
+  height: 30px !important;
+  min-height: 30px !important;
 }
 
 .calender .MuiOutlinedInput-notchedOutline {
@@ -112,6 +114,7 @@ input {
   outline: none !important;
   padding: 0 !important;
   padding-left: 0 !important;
+  height: 30px !important;
 }
 
 .calender .MuiTextField-root {
@@ -159,7 +162,7 @@ input {
 
 .enter-button {
   background-color: black;
-  width: 60px;
+  width: 100px;
   height: 40px;
   border: none;
   border-radius: 4px;

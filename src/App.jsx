@@ -5,12 +5,12 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import TextField from "@mui/material/TextField";
 
 import Sidebar from "./components/sidebar";
 import TasksCards from "./components/tasks-cards";
 import { useState } from "react";
-import dayjs from "dayjs";
 
 function App() {
   const [empty, setEmpty] = useState(true);
@@ -97,24 +97,58 @@ function App() {
 
         <div className="input-container">
           <div className="text-field">
+            {/*
             <input
               className="primary-input"
               placeholder="Sth random"
               id="task"
               value={task}
               onChange={(e) => setTask(e.target.value)}
+            />*/}
+            <TextField
+              id="task"
+              value={task}
+              label="Task"
+              onChange={(e) => setTask(e.target.value)}
+              variant="standard"
+              sx={{
+                pl: "10px",
+                pr: "10px",
+
+                "& .MuiInputBase-input": {
+                  paddingLeft: "10px",
+                  paddingRight: "10px",
+                },
+                "& .MuiInputLabel-root": {
+                  paddingLeft: "10px",
+                },
+              }}
             />
-            <input
-              className="secondary-input"
-              placeholder="Despription"
+            <TextField
               id="desc"
               value={desc}
               onChange={(e) => setDesc(e.target.value)}
+              label="Despription"
+              variant="standard"
+              sx={{
+                pl: "10px",
+                pr: "10px",
+
+                "& .MuiInputBase-input": {
+                  paddingLeft: "10px",
+                  paddingRight: "10px",
+                },
+                "& .MuiInputLabel-root": {
+                  paddingLeft: "10px",
+                },
+              }}
             />
+
             <div className="calender">
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DemoContainer components={["DatePicker"]}>
-                  <DatePicker
+                <DemoContainer components={["DateTimePicker"]}>
+                  <DateTimePicker
+                    label="Basic date time picker"
                     value={date}
                     onChange={(newValue) => setDate(newValue)}
                     label="Due Date"
@@ -136,7 +170,7 @@ function App() {
             </div>
             <div className="enter-button-container">
               <button className="enter-button" onClick={handleSubmit}>
-                send
+                Add task
               </button>
             </div>
           </div>
