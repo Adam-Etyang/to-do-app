@@ -1,7 +1,7 @@
-import './sidebar.css';
-import { useState, useEffect } from 'react';
+import "./sidebar.css";
+import { useState, useEffect } from "react";
 
-export default function Sidebar({ isOpen, onClose }) {
+export default function Sidebar({ isOpen, onClose, children }) {
   const [isClosing, setIsClosing] = useState(false);
 
   useEffect(() => {
@@ -22,19 +22,19 @@ export default function Sidebar({ isOpen, onClose }) {
 
   return (
     <>
-      <div className={`sidebar-overlay ${isClosing ? 'closing' : ''}`} onClick={handleClose}></div>
-      <div className={`main-container ${isClosing ? 'closing' : ''}`}>
-        <div className='sidebar-header'>
+      <div
+        className={`sidebar-overlay ${isClosing ? "closing" : ""}`}
+        onClick={handleClose}
+      ></div>
+      <div className={`main-container ${isClosing ? "closing" : ""}`}>
+        <div className="sidebar-header">
           <h2>Tasks</h2>
-          <button className='close-button' onClick={handleClose}>×</button>
+          <button className="close-button" onClick={handleClose}>
+            ×
+          </button>
         </div>
-        <div className='sidebar-content'>
-          {/* Task content will go here */}
-        </div>
+        <div className="sidebar-content">{children}</div>
       </div>
     </>
   );
 }
-
-
-
