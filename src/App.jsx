@@ -1,16 +1,23 @@
 import "./App.css";
 import { Box, Button } from "@chakra-ui/react";
 
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+
 import Sidebar from "./components/sidebar";
 import TasksCards from "./components/tasks-cards";
 import { useState } from "react";
+import dayjs from "dayjs";
 
 function App() {
   const [empty, setEmpty] = useState(true);
   const [dataMap, setDataMap] = useState(new Map());
   const [task, setTask] = useState("");
   const [desc, setDesc] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handlesidebar = () => {
@@ -22,7 +29,7 @@ function App() {
     console.log("cancel button pressed");
     setTask("");
     setDesc("");
-    setDate("");
+    setDate(null);
   };
 
   const handleSubmit = () => {
@@ -43,7 +50,7 @@ function App() {
 
     setTask("");
     setDesc("");
-    setDate(Date.now());
+    setDate(null);
   };
 
   if (empty) {
@@ -104,13 +111,16 @@ function App() {
               value={desc}
               onChange={(e) => setDesc(e.target.value)}
             />
-            <input
-              className="date"
-              placeholder="Date"
-              id="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-            />
+            <div className="calender">
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DemoContainer components={["DatePicker"]}>
+                  <DatePicker
+                    value={date}
+                    onChange={(newValue) => setDate(newValue)}
+                  />
+                </DemoContainer>
+              </LocalizationProvider>
+            </div>
           </div>
 
           <div className="card-footer">
