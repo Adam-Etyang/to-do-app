@@ -1,95 +1,128 @@
-.root{
+.root {
   min-height: 100vh;
-  display:flex;
-  justify-content : center;
+  display: flex;
+  justify-content: center;
   align-items: flex-start;
-  padding-top:10em;
-  background:white;
+  padding-top: 10em;
+  background: white;
   box-sizing: border-box;
 }
-.primary-conatainer{
-  display:flex;
-  flex-direction:column;
-  gap:1em;
-  align-items:center;
-  justify-content:center;
+.primary-conatainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 14em;
 }
-.default{
-  display:flex;
-  flex-direction:column;
-  height:5em;
-  width:5em;
-  align-items:center;
-  justify-content:center;
-  border:none;
-  outline:none;
+.default {
+  display: flex;
+  flex-direction: column;
+  height: 5em;
+  width: 5em;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
 }
-img{
-  border:none;
-  outline:none;
-  display:block;
+img {
+  border: none;
+  outline: none;
+  display: block;
 }
-.box-image{
-  border:none !important;
-  outline:none !important;
-  box-shadow:none !important;
+.box-image {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
-.secondary-text-box{
-  display:flex;
-  width:10em;
+.secondary-text-box {
+  display: flex;
+  width: 10em;
 }
-.secondary-text{
-  color: #BFBDB6;
+.secondary-text {
+  color: #bfbdb6;
 }
 
-.input-container{
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  border: 1px solid #E6E6E6;
+.input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e6e6e6;
   max-width: min(800px, 90vw);
   min-height: 175px;
-  border-radius:10px;
+  border-radius: 10px;
   width: 90%;
   padding-top: 1em;
   box-sizing: border-box;
 }
 
-.text-field{
-  display:flex;
-  flex-direction:column;
-  text-color:black;
-  gap:1em;
+.text-field {
+  display: flex;
+  flex-direction: column;
+  text-color: black;
+  gap: 1em;
 }
 
-input{
-  background-color:white;
-  color:black
+input {
+  background-color: white;
+  color: black;
 }
 
-.linebreak{
+.linebreak {
   display: block;
   margin: 15px 0;
   border-bottom: 2px solid #000;
   width: 50px; /* Small horizontal line */
 }
 
-.card-footer{
+.card-footer {
   position: relative;
-  display:flex;
-  flex-direction:row;
+  display: flex;
+  flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  height:40px;
+  height: 40px;
   margin: 10px 10px 10px 10px;
   gap: 0.5em;
 }
 
-.cancel-button{
+.calender {
+  display: flex;
+  padding-left: 10px;
+  margin-top: 10px;
+}
+
+/* Style DemoContainer to remove outline/border */
+.calender .MuiStack-root {
+  padding: 0 !important;
+}
+
+/* Style DatePicker input to match other input fields */
+.calender .MuiOutlinedInput-root {
+  border: none !important;
+  outline: none !important;
+}
+
+.calender .MuiOutlinedInput-notchedOutline {
+  border: none !important;
+}
+
+.calender .MuiInputBase-input {
+  border: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  padding-left: 0 !important;
+}
+
+.calender .MuiTextField-root {
+  border: none !important;
+  outline: none !important;
+}
+
+.cancel-button {
   width: 60px;
   height: 40px;
-  background-color:black;
+  background-color: black;
   border: none;
   border-radius: 4px;
   color: white;
@@ -98,11 +131,11 @@ input{
   align-items: center;
   justify-content: center;
 }
-.cancel-button:hover{
+.cancel-button:hover {
   cursor: pointer;
   background-color: #333;
 }
-.sidebarbutton{
+.sidebarbutton {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -124,7 +157,7 @@ input{
   background-color: #333;
 }
 
-.enter-button{
+.enter-button {
   background-color: black;
   width: 60px;
   height: 40px;
@@ -136,46 +169,41 @@ input{
   align-items: center;
   justify-content: center;
 }
-.enter-button:hover{
+.enter-button:hover {
   cursor: pointer;
   background-color: #333;
 }
-.enter-button-container{
+.enter-button-container {
   display: flex;
   align-items: center;
 }
-.cancel-button-container{
+.cancel-button-container {
   display: flex;
   align-items: center;
 }
 
-
-.secondary-input{
-  border:none;
-  outline:none;
-  padding-left:10px;
-
+.secondary-input {
+  border: none;
+  outline: none;
+  padding-left: 10px;
 }
-.primary-input{
-  margin-top:10px;
-  border:none;
-  outline:none;
-    padding-left:10px;
-
+.primary-input {
+  margin-top: 10px;
+  border: none;
+  outline: none;
+  padding-left: 10px;
 }
-.primary-input:active{
-  border:0px;
+.primary-input:active {
+  border: 0px;
 }
 .date {
-  border:none;
-  outline:none;
-    padding-left:10px;
-
+  border: none;
+  outline: none;
+  padding-left: 10px;
 }
 
-
-p{
-  color:black;
+p {
+  color: black;
 }
 
 /* Responsive breakpoints */
@@ -204,4 +232,3 @@ p{
     border-radius: 8px;
   }
 }
-

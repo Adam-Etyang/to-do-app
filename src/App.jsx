@@ -87,7 +87,7 @@ function App() {
     <>
       <Box position="relative" h="100vh" className="root" border="none">
         <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)}>
-          <TasksCards task={task} desc={desc} />
+          <TasksCards dataMap={dataMap} />
         </Sidebar>
         <div className="sidebarbutton">
           <button type="button" onClick={handlesidebar}>
@@ -117,6 +117,7 @@ function App() {
                   <DatePicker
                     value={date}
                     onChange={(newValue) => setDate(newValue)}
+                    label="Due Date"
                   />
                 </DemoContainer>
               </LocalizationProvider>

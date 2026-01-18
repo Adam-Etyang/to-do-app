@@ -4,4 +4,23 @@
   width: 100%;
   visibility: visible;
   background-color: black;
+  margin-bottom: 1em;
+  color: white;
+}
+
+.card p {
+  color: white;
+}
+
+.card strong {
+  color: white;
+}
+
+.no-tasks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+  color: #bfbdb6;
+  text-align: center;
 }
