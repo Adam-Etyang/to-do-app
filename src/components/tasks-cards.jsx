@@ -1,6 +1,7 @@
 import "./tasks-cards.css";
 import { Collapsible, Box, Button, Menu, Portal } from "@chakra-ui/react";
 import { LuChevronRight } from "react-icons/lu";
+import { FiEdit, FiTrash2, FiCheckCircle } from "react-icons/fi";
 import dayjs from "dayjs";
 
 export default function TasksCards({ dataMap }) {
@@ -51,15 +52,14 @@ export default function TasksCards({ dataMap }) {
                 <br />
                 <strong>Created:</strong>
                 <p>{dayjs(taskData.createdAt).format("MMM DD, YYYY h:mm A")}</p>
+
                 <Menu.Root>
                   <Menu.Trigger asChild>
                     <Button
                       variant="solid"
                       size="sm"
-                      color="black"
-                      borderColor="black"
-                      _hover={{ bg: "black", color: "white" }}
-                      _active={{ bg: "black", color: "white" }}
+                      colorPalette="blue"
+                      _hover={{ bg: "#1d4ed8" }}
                     >
                       Actions
                     </Button>

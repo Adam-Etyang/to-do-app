@@ -11,6 +11,15 @@ import TextField from "@mui/material/TextField";
 import Sidebar from "./components/sidebar";
 import TasksCards from "./components/tasks-cards";
 import { useState } from "react";
+import {
+  FiPlus,
+  FiCheckCircle,
+  FiList,
+  FiClock,
+  FiTarget,
+} from "react-icons/fi";
+import { HiOutlineClipboardList } from "react-icons/hi";
+import { MdCancel } from "react-icons/md";
 
 function App() {
   const [empty, setEmpty] = useState(true);
@@ -58,23 +67,43 @@ function App() {
       <>
         <Box position="relative" h="100vh" className="root" border="none">
           <div className="primary-conatainer">
-            <div className="default">
-              <img src="/empty-box.svg" alt="Empty box" className="box-image" />
+            <div className="hero-section">
+              <div className="icon-wrapper">
+                <HiOutlineClipboardList className="main-icon" />
+              </div>
+              <h1 className="hero-title">To Do list</h1>
+              <p className="hero-subtitle">Keep your tasks organized</p>
             </div>
-            <div className="secondary-text-box">
-              <p className="secondary-text">
-                This is you inbox it is where you put your tasks to accomplish
-              </p>
+
+            <div className="features-grid">
+              <div className="feature-card">
+                <FiList className="feature-icon" />
+                <h3>Organized Tasks</h3>
+                <p>Keep all your tasks in one place</p>
+              </div>
+              <div className="feature-card">
+                <FiClock className="feature-icon" />
+                <h3>Deadlines</h3>
+                <p>Set due dates and stay on track</p>
+              </div>
+              <div className="feature-card">
+                <FiTarget className="feature-icon" />
+                <h3>Stay Focused</h3>
+                <p>Achieve your goals efficiently</p>
+              </div>
             </div>
-            <div className="Add-task-button">
+
+            <div className="cta-section">
               <Button
                 onClick={() => {
                   setEmpty(false);
                 }}
-                size="sm"
-                colorPalette="yellow"
+                size="lg"
+                colorPalette="blue"
+                className="cta-button"
               >
-                Click ts
+                <FiPlus style={{ marginRight: "8px" }} />
+                Add Your tasks
               </Button>
             </div>
           </div>
@@ -91,7 +120,10 @@ function App() {
         </Sidebar>
         <div className="sidebarbutton">
           <button type="button" onClick={handlesidebar}>
-            open
+            <HiOutlineClipboardList
+              style={{ marginRight: "6px", fontSize: "18px" }}
+            />
+            View Tasks
           </button>
         </div>
 
@@ -128,7 +160,7 @@ function App() {
               id="desc"
               value={desc}
               onChange={(e) => setDesc(e.target.value)}
-              label="Despription"
+              label="Description"
               variant="standard"
               sx={{
                 pl: "10px",
@@ -165,12 +197,14 @@ function App() {
                 className="cancel-button"
                 onClick={handleCancel}
               >
+                <MdCancel style={{ marginRight: "6px", fontSize: "18px" }} />
                 Cancel
               </button>
             </div>
             <div className="enter-button-container">
               <button className="enter-button" onClick={handleSubmit}>
-                Add task
+                <FiPlus style={{ marginRight: "6px", fontSize: "18px" }} />
+                Add Task
               </button>
             </div>
           </div>
