@@ -4,15 +4,7 @@
   width: 100%;
   visibility: visible;
   background-color: white;
-  border: 1px solid #e2e8f0;
-  margin-bottom: 1em;
-  transition: all 0.2s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
 }
 
 .card p {

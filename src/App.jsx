@@ -50,6 +50,7 @@ function App() {
       text: desc,
       createdAt: Date.now(),
       dueDate: date,
+      completed: false,
     };
     setDataMap((prevMap) => {
       const newMap = new Map(prevMap);
@@ -60,6 +61,41 @@ function App() {
     setTask("");
     setDesc("");
     setDate(null);
+  };
+
+  const handleDeleteTask = (taskName) => {
+    setDataMap((prevMap) => {
+      const newMap = new Map(prevMap);
+      newMap.delete(taskName);
+      return newMap;
+    });
+  };
+
+  const handleCompleteTask = (taskName) => {
+    setDataMap((prevMap) => {
+      const newMap = new Map(prevMap);
+      const taskData = newMap.get(taskName);
+      if (taskData) {
+        newMap.set(taskName, { ...taskData, completed: !taskData.completed });
+      }
+      return newMap;
+    });
+  };
+
+  const handleEditTask = (oldTaskName, newTaskName, newDesc, newDueDate) => {
+    setDataMap((prevMap) => {
+      const newMap = new Map(prevMap);
+      const taskData = newMap.get(oldTaskName);
+      if (taskData) {
+        newMap.delete(oldTaskName);
+        newMap.set(newTaskName, {
+          ...taskData,
+          text: newDesc,
+          dueDate: newDueDate,
+        });
+      }
+      return newMap;
+    });
   };
 
   if (empty) {
@@ -116,7 +152,12 @@ function App() {
     <>
       <Box position="relative" h="100vh" className="root" border="none">
         <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)}>
-          <TasksCards dataMap={dataMap} />
+          <TasksCards
+            dataMap={dataMap}
+            onDeleteTask={handleDeleteTask}
+            onCompleteTask={handleCompleteTask}
+            onEditTask={handleEditTask}
+          />
         </Sidebar>
         <div className="sidebarbutton">
           <button type="button" onClick={handlesidebar}>
